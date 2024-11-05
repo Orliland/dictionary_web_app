@@ -562,6 +562,18 @@ video {
   margin-bottom: 85px;
 }
 
+.flex {
+  display: flex;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -582,6 +594,14 @@ video {
 
   .md\:mt-\[58px\] {
     margin-top: 58px;
+  }
+
+  .md\:h-\[36\.px\] {
+    height: 36.px;
+  }
+
+  .md\:h-\[36\.5px\] {
+    height: 36.5px;
   }
 
   .md\:px-10 {
