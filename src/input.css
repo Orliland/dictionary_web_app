@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components{
+  .heading-l{
+    @apply text-[64px] leading-[77px] track font-bold;
+  }
+  .heading-m{
+    @apply text-[24px] leading-[29px] track font-normal;
+  }
+  .heading-s{
+    @apply text-[20px] leading-[24px] track font-normal;
+  }
+  .body-m{
+    @apply text-[18px] leading-[24px] track font-normal;
+  }
+  .body-s{
+    @apply text-[14px] leading-[17px] track font-normal;
+  }
+}
