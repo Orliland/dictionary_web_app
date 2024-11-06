@@ -14,7 +14,11 @@ const FontSelector = () => {
         className="flex items-center gap-4 hover:cursor-pointer hover:text-purple"
         onClick={() => setShowMenu(!showMenu)}
       >
-        <span>{font}</span>
+        <span
+          className={` ${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} `}
+        >
+          {font}
+        </span>
         <img
           className="h-[6px] w-3"
           src={ArrowDownIcon}
