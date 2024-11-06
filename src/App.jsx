@@ -1,7 +1,21 @@
+import { useState } from "react";
 import Header from "./layout/Header";
 
+import { ThemeContext } from "./utils/ThemeContext";
+import { FontContext } from "./utils/FontContext";
+
 function App() {
-  return <div className="m-6 mb-[85px] md:mx-10 md:mt-[58px] md:mb-[118px] lg:mb-[124px] lg:w-[51.11111%] lg:mx-auto"><Header /></div>;
+  const [dark, setDark] = useState(false);
+  const [font, setFont] = useState("Sans Serif");
+  return (
+    <ThemeContext.Provider value={[dark, setDark]}>
+      <FontContext.Provider value={[font, setFont]}>
+        <div className="m-6 mb-[85px] md:mx-10 md:mb-[118px] md:mt-[58px] lg:mx-auto lg:mb-[124px] lg:w-[51.11111%]">
+          <Header />
+        </div>
+      </FontContext.Provider>
+    </ThemeContext.Provider>
+  );
 }
 
 export default App;
