@@ -28,7 +28,7 @@ const FontSelector = () => {
 
       {/* TODO: convert into a component */}
       <ul
-        className={`${!showMenu && "hidden"} absolute right-0 top-full mt-[18px] flex w-[183px] flex-col gap-4 rounded-2xl p-6 shadow-[0_5px_30px_rgba(0,0,0,0.1)]`}
+        className={`${!showMenu && "hidden"} absolute right-0 top-full mt-[18px] flex w-[183px] flex-col gap-4 rounded-2xl bg-white-100 p-6 shadow-[0_5px_30px_rgba(0,0,0,0.1)]`}
       >
         <li
           className="font-sans hover:cursor-pointer hover:text-purple"
