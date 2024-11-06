@@ -20,7 +20,10 @@ const ThemeSelector = () => {
       <img
         src={IconMoon}
         alt="icon for switch theme color"
-        className="h-5 w-auto"
+        className="h-5 w-auto hover:cursor-pointer"
+        onClick={() => {
+          setDark(!dark);
+        }}
       />
     </div>
   );
