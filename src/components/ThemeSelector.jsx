@@ -8,7 +8,7 @@ const ThemeSelector = () => {
   return (
     <div className="flex gap-3 md:gap-5">
       <button
-        className="h-5 w-10 rounded-full bg-white-400 p-[3px]"
+        className="h-5 w-10 rounded-full bg-white-400 p-[3px] hover:bg-purple"
         onClick={() => {
           setDark(!dark);
         }}

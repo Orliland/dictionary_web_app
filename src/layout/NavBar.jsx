@@ -5,13 +5,13 @@ import Logo from "../assets/logo.svg";
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between">
+    <nav className="flex items-center justify-between">
       <img
         src={Logo}
         alt="Dictionary web app logo"
         className="h-8 md:h-[36.5px]"
       />
-      <div>
+      <div className="flex items-center">
         <FontSelector />
         <ThemeSelector />
       </div>
