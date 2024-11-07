@@ -12,6 +12,9 @@
   .heading-s {
     @apply text-[20px] font-normal leading-[24px];
   }
+  .heading-mobile {
+    @apply text-[32px] font-bold;
+  }
   .body-m {
     @apply text-[18px] font-normal leading-[24px];
   }

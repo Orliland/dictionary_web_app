@@ -39,7 +39,7 @@ function App() {
     <ThemeContext.Provider value={[dark, setDark]}>
       <FontContext.Provider value={[font, setFont]}>
         <div
-          className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} m-6 mb-[85px] md:mx-10 md:mb-[118px] md:mt-[58px] lg:mx-auto lg:mb-[124px] lg:w-[51.11111%]`}
+          className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} m-6 mb-[85px] flex flex-col gap-6 md:mx-10 md:mb-[118px] md:mt-[58px] md:gap-[50px] lg:mx-auto lg:mb-[124px] lg:w-[51.11111%] lg:gap-[45px]`}
         >
           <Header setKeyword={setKeyword} setDefinition={setDefinition} />
           <Main definition={definition} />

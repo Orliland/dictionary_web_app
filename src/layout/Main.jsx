@@ -1,3 +1,4 @@
+import Definition from "./Definition";
 import Landing from "./Landing";
 
 const Main = ({ definition }) => {
@@ -32,8 +33,7 @@ const Main = ({ definition }) => {
     }
 
     default: {
-      console.log(definition);
-      return "hi";
+      return <Definition definition={definition} />;
     }
   }
 };
