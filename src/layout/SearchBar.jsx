@@ -1,17 +1,24 @@
+import { useState } from "react";
 import IconSearch from "../assets/icon-search.svg";
 
-const SearchBar = ({ keyword, setKeyword }) => {
+const SearchBar = ({ setKeyword, setDefinition }) => {
+  const [word, setWord] = useState("");
+
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setKeyword(word);
+        setDefinition("loading");
+      }}
       className="grid grid-cols-1 grid-rows-1"
     >
       <input
         type="text"
         className="col-span-1 col-start-1 col-end-2 row-start-1 row-end-2 w-full rounded-2xl bg-white-200 px-6 py-[14px] text-base font-bold leading-[22px] focus:border focus:border-purple focus:outline-0 md:py-[22px] md:text-xl md:leading-5 lg:py-[19px]"
-        value={keyword}
+        value={word}
         onChange={(e) => {
-          setKeyword(e.target.value);
+          setWord(e.target.value);
         }}
       />
       <button
