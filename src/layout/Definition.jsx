@@ -1,10 +1,11 @@
 import IconPlay from "../assets/icon-play.svg";
 import IconNewWindow from "../assets/icon-new-window.svg";
+import Meaning from "../components/Meaning";
 
 const Definition = ({ definition }) => {
   console.log(definition[0]);
   return (
-    <main className="flex flex-col gap-8">
+    <main className="flex flex-col gap-8 md:gap-[39px]">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <h1 className="heading-mobile md:heading-l">{definition[0].word}</h1>
@@ -17,11 +18,18 @@ const Definition = ({ definition }) => {
         </button>
       </div>
 
+      {/* TODO: separate into independent component */}
+
+      {definition[0].meanings.map((meaning, index) => (
+        <Meaning meaning={meaning} key={index} />
+      ))}
+
       <div className="flex flex-col border-t-[1px] border-white-300 pt-6 md:flex-row md:pt-[22px] lg:pt-5">
         <h3 className="body-s mb-2 text-white-400 underline md:m-0 md:mr-[25px] md:no-underline lg:mr-[21px]">
           Source
         </h3>
         <div className="flex flex-col gap-2">
+          {/* TODO: separate into independent component */}
           {definition[0].sourceUrls.map((source, index) => {
             return (
               <a
