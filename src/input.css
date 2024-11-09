@@ -12,9 +12,21 @@
   .heading-s {
     @apply text-[20px] font-normal leading-[24px];
   }
+  .heading-mobile {
+    @apply text-[32px] font-bold;
+  }
   .body-m {
     @apply text-[18px] font-normal leading-[24px];
   }
+
+  .body-xm {
+    @apply text-[16px] font-normal;
+  }
+
+  .quote {
+    @apply text-[15px] leading-[24px];
+  }
+
   .body-s {
     @apply text-[14px] font-normal leading-[17px];
   }
