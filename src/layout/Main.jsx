@@ -1,8 +1,8 @@
 import Definition from "./Definition";
 import Landing from "./Landing";
 
-const Main = ({ definition }) => {
-  switch (definition) {
+const Main = ({ definitions }) => {
+  switch (definitions) {
     case null: {
       return (
         <Landing
@@ -33,7 +33,7 @@ const Main = ({ definition }) => {
     }
 
     default: {
-      return <Definition definition={definition} />;
+      return <Definition definitions={definitions} />;
     }
   }
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import IconSearch from "../assets/icon-search.svg";
 
-const SearchBar = ({ setKeyword, setDefinition }) => {
+const SearchBar = ({ setKeyword, setDefinitions }) => {
   const [word, setWord] = useState("");
 
   return (
@@ -9,7 +9,7 @@ const SearchBar = ({ setKeyword, setDefinition }) => {
       onSubmit={(e) => {
         e.preventDefault();
         setKeyword(word);
-        setDefinition("loading");
+        setDefinitions("loading");
       }}
       className="grid grid-cols-1 grid-rows-1"
     >

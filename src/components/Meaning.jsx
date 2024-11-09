@@ -1,3 +1,5 @@
+import WordList from "../components/WordList";
+
 const Meaning = ({ meaning }) => {
   return (
     <fieldset className="border-t-[1px] border-white-300">
@@ -17,11 +19,55 @@ const Meaning = ({ meaning }) => {
               className="quote md:body-m grid grid-cols-[auto_1fr] gap-5 text-black-200"
             >
               <span className="mt-[10px] block h-[5px] w-[5px] rounded-full bg-purple"></span>
-              <p className="">{definition.definition}</p>
+              <div>
+                {definition.definition}
+
+                <div className="mt-3 flex flex-col gap-3">
+                  {definition.example && (
+                    <p className="quote md:body-m text-white-400">
+                      “{definition.example}”
+                    </p>
+                  )}
+
+                  {definition.synonyms.length > 0 && (
+                    <WordList
+                      type="Synonyms"
+                      words={definition.synonyms}
+                      styles="body-s md:body-m"
+                    />
+                  )}
+
+                  {definition.antonyms.length > 0 && (
+                    <WordList
+                      type="Antonyms"
+                      words={meaning.antonyms}
+                      styles="body-s md:body-m"
+                    />
+                  )}
+                </div>
+              </div>
             </li>
           );
         })}
       </ul>
+
+      {/* TODO: separate into a independent component */}
+
+      {meaning.synonyms.length > 0 && (
+        <WordList
+          type="Synonyms"
+          words={meaning.synonyms}
+          styles="body-xm md:heading-s mt-6 md:mt-[40px]"
+        />
+      )}
+
+      {meaning.antonyms.length > 0 && (
+        <WordList
+          type="Antonyms"
+          words={meaning.antonyms}
+          styles="body-xm md:heading-s mt-6 md:mt-[40px]"
+        />
+      )}
     </fieldset>
   );
 };

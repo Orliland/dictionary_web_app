@@ -11,27 +11,27 @@ function App() {
   const [font, setFont] = useState("Sans Serif");
 
   const [keyword, setKeyword] = useState("");
-  const [definition, setDefinition] = useState(null);
+  const [definitions, setDefinitions] = useState(null);
 
-  async function getDefinition() {
+  async function getDefinitions() {
     try {
       const response = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`,
       );
       if (response.ok) {
         const json = await response.json();
-        setDefinition(json);
+        setDefinitions(json);
       } else {
         throw new Error(response.status);
       }
     } catch {
-      setDefinition(false);
+      setDefinitions(false);
     }
   }
 
   useEffect(() => {
     if (keyword != "") {
-      getDefinition();
+      getDefinitions();
     }
   }, [keyword]);
 
@@ -41,8 +41,8 @@ function App() {
         <div
           className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} m-6 mb-[85px] flex flex-col gap-6 md:mx-10 md:mb-[118px] md:mt-[58px] md:gap-[50px] lg:mx-auto lg:mb-[124px] lg:w-[51.11111%] lg:gap-[45px]`}
         >
-          <Header setKeyword={setKeyword} setDefinition={setDefinition} />
-          <Main definition={definition} />
+          <Header setKeyword={setKeyword} setDefinitions={setDefinitions} />
+          <Main definitions={definitions} />
         </div>
       </FontContext.Provider>
     </ThemeContext.Provider>
