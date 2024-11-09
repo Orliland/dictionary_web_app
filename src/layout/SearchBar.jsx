@@ -15,7 +15,7 @@ const SearchBar = ({ setKeyword, setDefinitions }) => {
     >
       <input
         type="text"
-        className="col-span-1 col-start-1 col-end-2 row-start-1 row-end-2 w-full rounded-2xl bg-white-200 px-6 py-[14px] text-base font-bold leading-[22px] focus:border focus:border-purple focus:outline-0 md:py-[22px] md:text-xl md:leading-5 lg:py-[19px]"
+        className="col-span-1 col-start-1 col-end-2 row-start-1 row-end-2 w-full rounded-2xl bg-white-200 px-6 py-[14px] text-base font-bold leading-[22px] focus:border focus:border-purple focus:outline-0 md:py-[22px] md:text-xl md:leading-5 lg:py-[19px] dark:bg-black-300 dark:text-white-100"
         value={word}
         onChange={(e) => {
           setWord(e.target.value);

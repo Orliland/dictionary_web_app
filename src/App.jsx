@@ -10,6 +10,11 @@ function App() {
   const [dark, setDark] = useState(false);
   const [font, setFont] = useState("Sans Serif");
 
+  //TODO: add change for use preference and localStorage
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark");
+  }, [dark]);
+
   const [keyword, setKeyword] = useState("");
   const [definitions, setDefinitions] = useState(null);
 
@@ -36,16 +41,18 @@ function App() {
   }, [keyword]);
 
   return (
-    <ThemeContext.Provider value={[dark, setDark]}>
-      <FontContext.Provider value={[font, setFont]}>
-        <div
-          className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} m-6 mb-[85px] flex flex-col gap-6 md:mx-10 md:mb-[118px] md:mt-[58px] md:gap-[50px] lg:mx-auto lg:mb-[124px] lg:w-[51.11111%] lg:gap-[45px]`}
-        >
-          <Header setKeyword={setKeyword} setDefinitions={setDefinitions} />
-          <Main definitions={definitions} />
-        </div>
-      </FontContext.Provider>
-    </ThemeContext.Provider>
+    <div className="min-h-screen w-screen max-w-full bg-white-100 dark:bg-black-400">
+      <ThemeContext.Provider value={[dark, setDark]}>
+        <FontContext.Provider value={[font, setFont]}>
+          <div
+            className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} flex flex-col gap-6 p-6 pb-[85px] md:mx-10 md:gap-[50px] md:pb-[118px] md:pt-[58px] lg:mx-auto lg:w-[51.11111%] lg:gap-[45px] lg:pb-[124px]`}
+          >
+            <Header setKeyword={setKeyword} setDefinitions={setDefinitions} />
+            <Main definitions={definitions} />
+          </div>
+        </FontContext.Provider>
+      </ThemeContext.Provider>
+    </div>
   );
 }
 
