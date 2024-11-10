@@ -15,7 +15,7 @@ function App() {
     document.documentElement.classList.toggle("dark");
   }, [dark]);
 
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState("keyboard");
   const [definitions, setDefinitions] = useState(null);
 
   async function getDefinitions() {
@@ -47,7 +47,11 @@ function App() {
           <div
             className={`${font == "Sans Serif" && "font-sans"} ${font == "Serif" && "font-serif"} ${font == "Mono" && "font-mono"} flex flex-col gap-6 p-6 pb-[85px] md:mx-10 md:gap-[50px] md:pb-[118px] md:pt-[58px] lg:mx-auto lg:w-[51.11111%] lg:gap-[45px] lg:pb-[124px]`}
           >
-            <Header setKeyword={setKeyword} setDefinitions={setDefinitions} />
+            <Header
+              keyword={keyword}
+              setKeyword={setKeyword}
+              setDefinitions={setDefinitions}
+            />
             <Main definitions={definitions} />
           </div>
         </FontContext.Provider>

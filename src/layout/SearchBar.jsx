@@ -1,8 +1,8 @@
 import { useState } from "react";
 import IconSearch from "../assets/icon-search.svg";
 
-const SearchBar = ({ setKeyword, setDefinitions }) => {
-  const [word, setWord] = useState("");
+const SearchBar = ({ keyword, setKeyword, setDefinitions }) => {
+  const [word, setWord] = useState(keyword);
 
   return (
     <form
