@@ -3,7 +3,7 @@ import WordList from "../components/WordList";
 const Meaning = ({ meaning }) => {
   return (
     <fieldset className="border-t-[1px] border-white-300">
-      <legend className="body-m md:heading-m mb-8 pr-4 font-bold italic md:pr-5 md:font-bold">
+      <legend className="body-m md:heading-m mb-8 pr-4 font-bold italic text-black-200 md:pr-5 md:font-bold dark:text-white-100">
         {meaning.partOfSpeech}
       </legend>
 
@@ -19,7 +19,7 @@ const Meaning = ({ meaning }) => {
               className="quote md:body-m grid grid-cols-[auto_1fr] gap-5 text-black-200"
             >
               <span className="mt-[10px] block h-[5px] w-[5px] rounded-full bg-purple"></span>
-              <div>
+              <div className="text-black-200 dark:text-white-100">
                 {definition.definition}
 
                 <div className="mt-3 flex flex-col gap-3">

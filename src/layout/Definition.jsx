@@ -20,7 +20,9 @@ const DefinitionItem = ({ definition }) => {
     <section className="flex flex-col gap-8 md:gap-[39px]">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
-          <h1 className="heading-mobile md:heading-l">{definition.word}</h1>
+          <h1 className="heading-mobile md:heading-l text-black-200 dark:text-white-100">
+            {definition.word}
+          </h1>
           <span className="body-m md:heading-m text-purple">
             {phonetic.text}
           </span>
@@ -44,8 +46,6 @@ const DefinitionItem = ({ definition }) => {
         )}
       </div>
 
-      {/* TODO: separate into independent component */}
-
       {definition.meanings.map((meaning, index) => (
         <Meaning meaning={meaning} key={index} />
       ))}
@@ -62,7 +62,7 @@ const DefinitionItem = ({ definition }) => {
                 href={source}
                 key={index}
                 target="_blank"
-                className="body-s text-wrap text-black-200 underline md:no-underline"
+                className="body-s text-wrap text-black-200 underline md:no-underline dark:text-white-100"
               >
                 {source}
 
