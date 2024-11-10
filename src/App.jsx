@@ -12,7 +12,11 @@ function App() {
 
   //TODO: add change for use preference and localStorage
   useEffect(() => {
-    document.documentElement.classList.toggle("dark");
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [dark]);
 
   const [keyword, setKeyword] = useState("keyboard");
