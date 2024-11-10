@@ -34,6 +34,7 @@ const FontSelector = () => {
           className="font-sans hover:cursor-pointer hover:text-purple"
           onClick={() => {
             setFont("Sans Serif");
+            localStorage.setItem("font", "Sans Serif");
             setShowMenu(!showMenu);
           }}
         >
@@ -43,6 +44,7 @@ const FontSelector = () => {
           className="font-serif hover:cursor-pointer hover:text-purple"
           onClick={() => {
             setFont("Serif");
+            localStorage.setItem("font", "Serif");
             setShowMenu(!showMenu);
           }}
         >
@@ -52,6 +54,7 @@ const FontSelector = () => {
           className="font-mono hover:cursor-pointer hover:text-purple"
           onClick={() => {
             setFont("Mono");
+            localStorage.setItem("font", "Mono");
             setShowMenu(!showMenu);
           }}
         >

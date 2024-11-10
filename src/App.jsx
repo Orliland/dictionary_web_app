@@ -10,7 +10,6 @@ function App() {
   const [dark, setDark] = useState(false);
   const [font, setFont] = useState("Sans Serif");
 
-  //TODO: add change for use preference and localStorage
   useEffect(() => {
     let localDark = localStorage.getItem("dark");
     if (localDark === null) {
@@ -19,13 +18,10 @@ function App() {
       localDark = JSON.parse(localDark);
     }
 
-    setDark(localDark);
-
-    if (dark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    if (localDark != dark) {
+      setDark(localDark);
     }
+    document.documentElement.classList.toggle("dark");
   }, [dark]);
 
   const [keyword, setKeyword] = useState("");
@@ -46,6 +42,13 @@ function App() {
       setDefinitions(false);
     }
   }
+
+  useEffect(() => {
+    let localFont = localStorage.getItem("font");
+    if (localFont != null) {
+      setFont(localFont);
+    }
+  }, [font]);
 
   useEffect(() => {
     if (keyword != "") {
