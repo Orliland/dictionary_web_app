@@ -19,7 +19,7 @@ function App() {
     }
   }, [dark]);
 
-  const [keyword, setKeyword] = useState("keyboard");
+  const [keyword, setKeyword] = useState("");
   const [definitions, setDefinitions] = useState(null);
 
   async function getDefinitions() {
