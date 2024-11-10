@@ -12,6 +12,15 @@ function App() {
 
   //TODO: add change for use preference and localStorage
   useEffect(() => {
+    let localDark = localStorage.getItem("dark");
+    if (localDark === null) {
+      localDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } else {
+      localDark = JSON.parse(localDark);
+    }
+
+    setDark(localDark);
+
     if (dark) {
       document.documentElement.classList.add("dark");
     } else {

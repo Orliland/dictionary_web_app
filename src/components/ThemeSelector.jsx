@@ -10,6 +10,7 @@ const ThemeSelector = () => {
       <button
         className="h-5 w-10 rounded-full bg-white-400 p-[3px] hover:bg-purple dark:bg-purple"
         onClick={() => {
+          localStorage.setItem("dark", JSON.stringify(!dark));
           setDark(!dark);
         }}
       >
