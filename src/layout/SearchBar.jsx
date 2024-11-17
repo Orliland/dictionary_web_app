@@ -1,8 +1,8 @@
 import { useState } from "react";
 import IconSearch from "../assets/icon-search.svg";
 
-const SearchBar = ({ keyword, setKeyword, setDefinitions }) => {
-  const [word, setWord] = useState(keyword);
+const SearchBar = ({ setKeyword }) => {
+  const [word, setWord] = useState("");
   const [empty, setEmpty] = useState(false);
 
   return (
@@ -11,7 +11,6 @@ const SearchBar = ({ keyword, setKeyword, setDefinitions }) => {
         e.preventDefault();
         if (word.length > 0) {
           setKeyword(word);
-          setDefinitions("loading");
         } else {
           setEmpty(true);
         }
@@ -24,7 +23,6 @@ const SearchBar = ({ keyword, setKeyword, setDefinitions }) => {
         value={word}
         onChange={(e) => {
           setWord(e.target.value);
-          setEmpty(false);
         }}
       />
       <span className={`mt-2 text-red ${empty ? "visible" : "invisible"}`}>
