@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 
-let URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-
 export function useFetch(keyword) {
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  URL = URL + keyword;
+  const URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
   useEffect(() => {
+    if (keyword == "") {
+      return;
+    }
+
     setIsLoading(true);
-    fetch(URL)
+    setData(null);
+    setError(null);
+    fetch(URL + keyword)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -22,7 +26,7 @@ export function useFetch(keyword) {
       .then((data) => setData(data))
       .catch((error) => setError(error))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [keyword]);
 
   return { data, isLoading, error };
 }
