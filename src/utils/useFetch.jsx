@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 
-const URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+let URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 export function useFetch(keyword) {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  URL = URL + keyword;
 
   useEffect(() => {
-    fetch(URL + keyword)
+    setIsLoading(true);
+    fetch(URL)
       .then((response) => response.json)
-      .then((data) => setData(data));
+      .then((data) => setData(data))
+      .catch((error) => setError(error))
+      .finally(() => setIsLoading(false));
   }, []);
 
-  return { data };
+  return { data, isLoading, error };
 }
