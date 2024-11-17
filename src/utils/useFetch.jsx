@@ -12,7 +12,13 @@ export function useFetch(keyword) {
   useEffect(() => {
     setIsLoading(true);
     fetch(URL)
-      .then((response) => response.json)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.status);
+        }
+      })
       .then((data) => setData(data))
       .catch((error) => setError(error))
       .finally(() => setIsLoading(false));
