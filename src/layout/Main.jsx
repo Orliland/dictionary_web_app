@@ -1,5 +1,7 @@
-import Definition from "./Definition";
 import Landing from "./Landing";
+import { lazy } from "react";
+
+const Definition = lazy(() => import("./Definition"));
 
 const Main = ({ definitions }) => {
   switch (definitions) {
